@@ -7,7 +7,7 @@ slug: deepsuck-project
 featured: true
 draft: false
 tags:
-  - Porjects
+  - Projects
   - DeepSuck
 description: "保持胶黏."
 ---
