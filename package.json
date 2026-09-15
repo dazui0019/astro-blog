@@ -2,6 +2,7 @@
   "name": "astro-blog",
   "type": "module",
   "version": "6.1.0",
+  "packageManager": "pnpm@12.4.1",
   "engines": {
     "node": ">=22.12.0"
   },
