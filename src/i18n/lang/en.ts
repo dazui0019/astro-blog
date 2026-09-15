@@ -4,10 +4,18 @@ export default {
   nav: {
     home: "Home",
     posts: "Posts",
+    projects: "Projects",
     tags: "Tags",
     about: "About",
     archives: "Archives",
     search: "Search",
+  },
+  project: {
+    description: "Things I\'ve built and worked on.",
+    empty: "No projects yet. Check back soon!",
+    website: "Live demo",
+    repository: "Source code",
+    featured: "Featured",
   },
   post: {
     publishedAt: "Published at",

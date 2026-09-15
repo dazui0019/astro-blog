@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { useTranslations } from "@/i18n";
+import config from "@/config";
+
+type Props = { project: CollectionEntry<"projects"> };
+const { tags, website, repository } = Astro.props.project.data;
+const t = useTranslations(Astro.currentLocale ?? config.site.lang);
+---
+
+{
+  tags.length > 0 && (
+    <ul
+      class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-sm opacity-75"
+      aria-label={t.post.tagLabel}
+    >
+      {tags.map(tag => (
+        <li>#{tag}</li>
+      ))}
+    </ul>
+  )
+}
+{
+  (website || repository) && (
+    <div class="mt-3 flex flex-wrap gap-4 text-sm">
+      {website && (
+        <a
+          class="text-accent decoration-dashed underline-offset-4 hover:underline"
+          href={website}
+        >
+          {t.project.website} <span aria-hidden="true">↗</span>
+        </a>
+      )}
+      {repository && (
+        <a
+          class="text-accent decoration-dashed underline-offset-4 hover:underline"
+          href={repository}
+        >
+          {t.project.repository} <span aria-hidden="true">↗</span>
+        </a>
+      )}
+    </div>
+  )
+}

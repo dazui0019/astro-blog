@@ -164,3 +164,41 @@ Licensed under the MIT License, Copyright © 2026
 ---
 
 Made with 🤍 by [Sat Naing](https://satnaing.dev) 👨🏻‍💻 and [contributors](https://github.com/satnaing/astro-paper/graphs/contributors).
+
+## Projects collection
+
+Add Markdown or MDX files to `src/content/projects/`. Each published entry gets
+an overview on `/projects/` and a detail page at `/projects/<id>/` (the ID comes
+from the filename, including any subdirectories).
+
+```yaml
+---
+title: "My project"
+description: "A short description of the project."
+cover: "./my-project.png"
+coverAlt: "Screenshot of my project"
+tags: [Astro, TypeScript]
+featured: false
+order: 0
+draft: false
+website: "https://example.com"
+repository: "https://github.com/username/project"
+---
+```
+
+Only `title` and `description` are required. Links must use HTTP or HTTPS.
+Featured projects appear first, then lower `order` values, then title.
+Set `draft: true` to exclude an entry from both the list and generated detail
+pages. Write the project details below the frontmatter. `astro-blog.md` is a
+starter entry you can edit or remove.
+
+### Project images
+
+`cover` is optional: use a local image path relative to the Markdown file (for
+example, keep `my-project.png` beside `my-project.md`). Astro optimizes these
+images and generates responsive sizes. Add `coverAlt` to describe the image.
+The project list displays 16:9 thumbnails in two columns on larger screens and
+one column on mobile; detail pages show the full image without cropping.
+Projects without a cover still display their title and description.
+The starter entry uses the existing AstroPaper theme illustration; replace it
+with your own project screenshot when ready.
