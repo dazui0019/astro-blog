@@ -1,0 +1,18 @@
+diff --git a/dist/vite-plugin-app/app.js b/dist/vite-plugin-app/app.js
+index 4f5afe37873664753fdfd7ad06f9acc1cb4fb32b..9e6462a1f5981f4b58e569015bc48992be3f90f7 100644
+--- a/dist/vite-plugin-app/app.js
++++ b/dist/vite-plugin-app/app.js
+@@ -166,6 +166,13 @@ class AstroServerApp extends BaseApp {
+           onSocketClose();
+         } else {
+           socket.on("close", onSocketClose);
++          const cleanup = () => {
++            socket.off("close", onSocketClose);
++            incomingResponse.off("finish", cleanup);
++            incomingResponse.off("close", cleanup);
++          };
++          incomingResponse.once("finish", cleanup);
++          incomingResponse.once("close", cleanup);
+         }
+         const request = createRequest({
+           url,
