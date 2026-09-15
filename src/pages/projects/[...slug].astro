@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import { getCollection, render, type CollectionEntry } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
+import TableOfContents from "@/components/TableOfContents.astro";
 import Header from "@/components/Header.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import Main from "@/components/Main.astro";
@@ -19,7 +20,7 @@ export async function getStaticPaths() {
 
 type Props = { project: CollectionEntry<"projects"> };
 const { project } = Astro.props;
-const { Content } = await render(project);
+const { Content, headings } = await render(project);
 ---
 
 <Layout
@@ -43,6 +44,8 @@ const { Content } = await render(project);
       )
     }
     <ProjectMeta project={project} />
+    <TableOfContents headings={headings} enabled={project.data.showToc} />
+
     <article class="app-prose mt-8 max-w-none">
       <Content />
     </article>

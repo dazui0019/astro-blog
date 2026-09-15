@@ -16,6 +16,7 @@ export interface UIStrings {
     featured: string;
   };
   post: {
+    tableOfContents: string;
     publishedAt: string;
     updatedAt: string;
     sharePostIntro: string;

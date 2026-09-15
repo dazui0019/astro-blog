@@ -202,3 +202,14 @@ one column on mobile; detail pages show the full image without cropping.
 Projects without a cover still display their title and description.
 The starter entry uses the existing AstroPaper theme illustration; replace it
 with your own project screenshot when ready.
+
+## Automatic table of contents
+
+Post and project detail pages automatically list Markdown/MDX headings from
+`##` through `####`. The directory appears beside the article on wide screens
+and as a collapsible section above the body on smaller screens. Links work
+without JavaScript; pages without eligible headings omit the directory.
+
+To disable it for one entry, add `showToc: false` to its frontmatter. Existing
+`## Table of contents` or `## toc` sections continue to use remark-toc and
+suppress the automatic directory to avoid duplicates.

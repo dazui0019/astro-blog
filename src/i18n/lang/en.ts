@@ -18,6 +18,7 @@ export default {
     featured: "Featured",
   },
   post: {
+    tableOfContents: "Table of contents",
     publishedAt: "Published at",
     updatedAt: "Updated",
     sharePostIntro: "Share this post:",
